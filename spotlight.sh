@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 dataPath="${XDG_DATA_HOME:-$HOME/.local/share}"
 
 spotlightPath="$dataPath/spotlight"
