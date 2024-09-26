@@ -53,9 +53,18 @@ imagePath="$backgroundsPath/$(date +%y-%m-%d-%H-%M-%S)-$title.jpg"
 
 wget -qO "$imagePath" "$landscapeUrl"
 
-gsettings set org.gnome.desktop.background picture-options "zoom"
-gsettings set org.gnome.desktop.background picture-uri "file://$imagePath"
-gsettings set org.gnome.desktop.background picture-uri-dark "file://$imagePath"
+qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "
+    var allDesktops = desktops();
+    print (allDesktops);
+    for (i=0;i<allDesktops.length;i++) {{
+        d = allDesktops[i];
+        d.wallpaperPlugin = \"org.kde.image\";
+        d.currentConfigGroup = Array(\"Wallpaper\",
+                                     \"org.kde.image\",
+                                     \"General\");
+        d.writeConfig(\"Image\", \"file:///${imagePath@Q}\")
+    }}
+"
 
 mkdir -p "$spotlightPath"
 
