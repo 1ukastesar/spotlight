@@ -1,5 +1,5 @@
 # spotlight
-Windows 10 Spotlight Background images for Gnome
+Windows 10 Spotlight Background images for KDE
 
 ## Installation
 ### System-wide
@@ -16,7 +16,7 @@ Windows 10 Spotlight Background images for Gnome
 * wget
 * jq
 * sed
-* glib2 (gnome)
+* qdbus (KDE)
 * systemd
 
 ## Usage
