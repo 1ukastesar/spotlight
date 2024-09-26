@@ -64,7 +64,7 @@ qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "
         d.currentConfigGroup = Array(\"Wallpaper\",
                                      \"org.kde.image\",
                                      \"General\");
-        d.writeConfig(\"Image\", \"file:///${imagePath@Q}\")
+        d.writeConfig(\"Image\", \"file:///${imagePath}\")
     }}
 "
 
