@@ -86,7 +86,7 @@ qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "
 
 mkdir -p "$spotlightPath"
 
-previousImagePath="$(readlink "$spotlightPath/background.jpg")"
+previousImagePath="$(readlink "$spotlightPath/background.jpg" || true)"
 ln -sf "$imagePath" "$spotlightPath/background.jpg"
 
 if [ "$keepImage" = false ] && [ -n "$previousImagePath" ] && [ -f "$previousImagePath" ] && [ "$imagePath" != "$previousImagePath" ]
