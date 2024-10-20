@@ -7,7 +7,7 @@ dataPath="${XDG_DATA_HOME:-$HOME/.local/share}"
 spotlightPath="$dataPath/spotlight"
 backgroundsPath="$dataPath/backgrounds"
 
-keepImage=false
+keepImage=true
 
 function showHelp()
 {
@@ -52,6 +52,8 @@ url=$(jq -r ".ad.ctaUri" <<< $response | sed "s/.*\(http.*\)/\1/")
 
 mkdir -p "$backgroundsPath"
 imagePath="$backgroundsPath/$(date +%y-%m-%d-%H-%M-%S)-$title.jpg"
+
+imagePath="${imagePath// /_}"
 
 wget -qO "$imagePath" "$landscapeUrl"
 
