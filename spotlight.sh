@@ -7,7 +7,7 @@ dataPath="${XDG_DATA_HOME:-$HOME/.local/share}"
 spotlightPath="$dataPath/spotlight"
 backgroundsPath="$dataPath/backgrounds"
 
-keepImage=false
+keepImage=true
 
 function showHelp()
 {
@@ -59,6 +59,8 @@ searchTerms=$(jq -r ".ad.title_destination_url.u" <<< $item | sed "s/.*q=\([^&]*
 
 mkdir -p "$backgroundsPath"
 imagePath="$backgroundsPath/$(date +%y-%m-%d-%H-%M-%S)-$title ($searchTerms).jpg"
+
+imagePath="${imagePath// /_}"
 
 wget -qO "$imagePath" "$landscapeUrl"
 sha256calculated=$(sha256sum "$imagePath" | cut -d " " -f 1)
