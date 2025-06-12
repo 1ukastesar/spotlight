@@ -1,5 +1,5 @@
 # spotlight
-Windows 10 Spotlight Background images for KDE
+Windows 10/11 Spotlight Background images for KDE
 
 ## Installation
 ### System-wide
@@ -16,13 +16,13 @@ Windows 10 Spotlight Background images for KDE
 * wget
 * jq
 * sed
-* qdbus (KDE)
+* plasma-workspace (KDE)
 * systemd
 
 ## Usage
 Run `systemctl --user enable spotlight.timer` to get a new picture every day.
 
-To fetch a new background manually you can either use the desktop entry by looking for _spotlight_ in your gnome application menu (`[SUPER] spot... [ENTER]`) or trigger the service from command line with `systemctl --user start spotlight.service`.
+To fetch a new background manually you can either use the desktop entry by looking for _spotlight_ in your KDE Appliaction launcher menu (`[SUPER] spot... [ENTER]`) or trigger the service from command line with `systemctl --user start spotlight.service`.
 
 Use the system log to get the past image descriptions, e.g. for the the current background `journalctl -t spotlight -n 1`.
 
@@ -48,7 +48,7 @@ ExecStart=/usr/bin/env bash spotlight.sh -k -d %h/Pictures/Spotlight
 
 ### Notifications
 
-Notifications can be controlled via the Gnome Control Center.
+Notifications can be controlled via KDE notification settings.
 
 ## Packages
 ### Arch Linux
